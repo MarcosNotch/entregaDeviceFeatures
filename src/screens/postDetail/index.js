@@ -11,7 +11,7 @@ const PostDetail = ({ navigation, route }) => {
 
   return (
     <ScrollView style={styles.container}>
-      <Image source={{ uri: post.image }} style={styles.image} />
+      <Image source={{ uri: post.imageUri }} style={styles.image} />
       <View style={styles.location}>
         <View style={styles.addressContainer}>
           <Text style={styles.address}>{post.title}</Text>

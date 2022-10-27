@@ -1,18 +1,27 @@
 
 import { View, Text, FlatList} from "react-native"
-
+import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
 import PostItem from "../../Components/post-item"
 import {styles} from "./styles"
+import { useEffect } from "react"
+import { loadPosts } from "../../store/post.slice"
 
 const MainScreen = ({navigation}) => {
     
     const posts = useSelector(state => state.post.posts)
-    console.warn(posts)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+      dispatch(loadPosts())
+    }
+    , [dispatch])
+
+
+
 
 
     const renderItem = ({ item }) => {
-        console.warn(item)
         return(  <PostItem
             {...item}
             onSelect={() => navigation.navigate("PostDetail", { postId: item.id })}

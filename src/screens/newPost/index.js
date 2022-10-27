@@ -4,7 +4,7 @@ import { ImageSelector } from "../../Components";
 import { useState } from "react";
 import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from "react-native";
 import {useDispatch} from "react-redux";
-import { addPost } from "../../store/post.slice";
+import { savePost } from "../../store/post.slice";
 
 const NewPost = ({navigation}) => {
     const [title, setTitle] = useState("");
@@ -22,7 +22,7 @@ const NewPost = ({navigation}) => {
 
     const onHandleSubmit = () => {
         console.log(title)
-        dispatch(addPost({title: title, image: image}));
+        dispatch(savePost( title, image));
         navigation.navigate("Posts");
       };
 
